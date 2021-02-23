@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use '~@rocket.chat/fuselage-tokens/typography.scss';
+@use './functions.scss';
+
+@function font-family($name) {
+  @if not map.has-key(typography.$font-families, $name) {
+    @error 'invalid font family name';
+  }
+
+  @return var(--rcx-font-family-#{ $name }, map.get(typography.$font-families, $name));
+}
+
+$font-scales: map.keys(typography.$font-scales);
+
+@mixin use-font-scale($name) {
+  @if not map.has-key(typography.$font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  $-font-scale: map.get(typography.$font-scales, $name);
+  letter-spacing: functions.to-rem(map.get($-font-scale, letter-spacing));
+
+  font-size: functions.to-rem(map.get($-font-scale, font-size));
+  font-weight: map.get($-font-scale, font-weight);
+  line-height: functions.to-rem(map.get($-font-scale, line-height));
+}
+
+@function letter-spacing($name) {
+  @if not map.has-key(typography.$font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return functions.to-rem(map.get(map.get(typography.$font-scales, $name), letter-spacing));
+}
+
+@function font-size($name) {
+  @if not map.has-key(typography.$font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return functions.to-rem(map.get(map.get(typography.$font-scales, $name), font-size));
+}
+
+@function font-weight($name) {
+  @if not map.has-key(typography.$font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return map.get(map.get(typography.$font-scales, $name), font-weight);
+}
+
+@function line-height($name) {
+  @if not map.has-key(typography.$font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return functions.to-rem(map.get(map.get(typography.$font-scales, $name), line-height));
+}
+
+@mixin use-text-ellipsis {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+@mixin use-with-truncated-text {
+  @include use-text-ellipsis();
+  white-space: nowrap;
+}

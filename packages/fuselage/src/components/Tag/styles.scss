@@ -1,0 +1,85 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+$tag-colors-secondary-color: theme('tag-colors-secondary-color', colors.foreground(primary));
+$tag-colors-secondary-background-color: theme('tag-colors-secondary-background-color', colors.primary(100));
+
+$tag-colors-primary-color: theme('tag-colors-primary-color', colors.foreground(alternative));
+$tag-colors-primary-background-color: theme('tag-colors-primary-background-color', colors.primary(500));
+
+$tag-colors-danger-color: theme('tag-colors-danger-color', colors.foreground(alternative));
+$tag-colors-danger-background-color: theme('tag-colors-danger-background-color', colors.danger(500));
+
+$tag-colors-ghost-color: theme('tag-colors-ghost-color', colors.foreground(alternative));
+$tag-colors-ghost-background-color: theme('tag-colors-ghost-background-color', colors.neutral(700));
+
+$tag-colors-warning-color: theme('tag-colors-warning-color', colors.foreground(alternative));
+$tag-colors-warning-background-color: theme('tag-colors-warning-background-color', colors.warning-alternative(500));
+
+$tag-colors-disabled-color: theme('tag-colors-disabled-color', colors.foreground(hint));
+$tag-colors-disabled-background-color: theme('tag-colors-disabled-background-color', colors.neutral(400));
+
+.rcx-tag {
+  display: inline-block;
+  overflow: hidden;
+
+  width: fit-content;
+
+  padding:
+    lengths.padding(2)
+    lengths.padding(4);
+
+  white-space: nowrap;
+
+  text-decoration: none;
+  text-overflow: ellipsis;
+
+  word-break: keep-all;
+
+  border-radius: lengths.border-radius(4);
+
+  @include typography.use-font-scale(micro);
+
+  &--secondary {
+    color: $tag-colors-secondary-color;
+    background-color: $tag-colors-secondary-background-color;
+  }
+
+  &--primary {
+    color: $tag-colors-primary-color;
+    background-color: $tag-colors-primary-background-color;
+  }
+
+  &--danger {
+    color: $tag-colors-danger-color;
+    background-color: $tag-colors-danger-background-color;
+  }
+
+  &--warning {
+    color: $tag-colors-warning-color;
+    background-color: $tag-colors-warning-background-color;
+  }
+
+  &--ghost {
+    color: $tag-colors-ghost-color;
+    background-color: $tag-colors-ghost-background-color;
+  }
+
+  &--disabled {
+    color: $tag-colors-disabled-color;
+    background-color: $tag-colors-disabled-background-color;
+  }
+
+  &--round {
+    overflow: hidden;
+
+    text-align: center;
+
+    border-radius: lengths.border-radius(full);
+  }
+
+  &--clickable {
+    @include clickable();
+  }
+}

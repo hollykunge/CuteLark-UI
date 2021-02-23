@@ -1,0 +1,30 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-option {
+  @include clickable;
+  @include typography.use-font-scale(p2);
+  @include typography.use-text-ellipsis;
+
+  padding: lengths.padding(4) lengths.padding(16);
+
+  list-style: none;
+
+  white-space: nowrap;
+
+  &:hover,
+  &--focus {
+    background: colors.neutral(400);
+  }
+
+  &--selected {
+    background: colors.neutral(500);
+  }
+}
+
+.rcx-options:hover {
+  .rcx-option--focus:not(.rcx-option--selected):not(:hover) {
+    background: initial;
+  }
+}

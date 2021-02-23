@@ -1,0 +1,10 @@
+@mixin clickable {
+  cursor: pointer;
+
+  outline: 0;
+
+  &.disabled,
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
