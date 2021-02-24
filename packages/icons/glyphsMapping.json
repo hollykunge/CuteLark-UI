@@ -694,5 +694,23 @@
   },
   "login": {
     "start": "\ue0b8"
+  },
+  "baloon-arrow-left": {
+    "start": "\ue0b9"
+  },
+  "burger": {
+    "start": "\ue0ba"
+  },
+  "document-eye": {
+    "start": "\ue0bb"
+  },
+  "hashtag-lock": {
+    "start": "\ue0bc"
+  },
+  "members": {
+    "start": "\ue0bd"
+  },
+  "team-lock": {
+    "start": "\ue0be"
   }
 }
