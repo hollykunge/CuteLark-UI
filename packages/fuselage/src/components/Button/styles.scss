@@ -52,6 +52,8 @@
   white-space: nowrap;
   text-decoration: none;
 
+  border-radius: lengths.border-radius(4); // tag: 圆角
+
   @include clickable;
   @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
